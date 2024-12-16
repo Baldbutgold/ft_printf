@@ -1,7 +1,8 @@
 #include "ft_printf.h"
 int main()
 {
-    printf("%d\n", ft_putchar('c'));
-    int result = printf("%d\n", -214748368);
-    printf("%d characters were written", result);
+    int my_result = ft_putnbr(-1234);
+    int result = printf("%d", -1234);
+    printf("printf %d characters were written\n", result);
+    printf("my printf %d characters were written", my_result);
 }

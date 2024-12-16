@@ -48,7 +48,7 @@ int	ft_putnbr(int n)
 	}
 	if (n > 9)
 		ft_putnbr(n / 10);
-	count += ft_putchar((n % 10) + 48);
+	ft_putchar((n % 10) + 48);
 	return (count);
 }
 
