@@ -7,8 +7,8 @@
 # include <limits.h>
 
 int	ft_printf(const char *format, ...);
-void	ft_putchar(char c);
-void	ft_putstr(char *str);
-void	ft_putnbr(int n);
-void	ft_puthex(unsigned int n, int is_upper);
+int	ft_putchar(char c);
+int	ft_putstr(char *str);
+int	ft_putnbr(int n);
+int	ft_puthex(unsigned int n, int is_upper);
 #endif

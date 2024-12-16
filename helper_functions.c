@@ -12,55 +12,63 @@
 
 #include "ft_printf.h"
 
-void	ft_putchar(char c)
+int	ft_putchar(char c)
 {
 	write(1, &c, 1);
+	return (1);
 }
 
-void	ft_putstr(char *s)
+int	ft_putstr(char *s)
 {
 	int	i;
 
 	if (!s)
-		return ;
+		return (0);
 	i = 0;
 	while (s[i])
 		ft_putchar(s[i++]);
+	return (i);
 }
 
-void	ft_putnbr(int n)
+int	ft_putnbr(int n)
 {
+	int	count;
+
+	count = 0;
 	if (n == INT_MIN)
 	{
 		ft_putstr("-2147483648");
-		return ;
+		return (11);
 	}
 	if (n < 0)
 	{
 		ft_putchar('-');
 		n *= -1;
+		count++;
 	}
 	if (n > 9)
 		ft_putnbr(n / 10);
-	ft_putchar((n % 10) + 48);
+	count += ft_putchar((n % 10) + 48);
+	return (count);
 }
 
-void	ft_puthex(unsigned int n, int is_upper)
+int	ft_puthex(unsigned int n, int is_upper)
 {
 	char	*low_hex = "0123456789abcdef";
 	char	*upper_hex = "0123456789ABCDEF";
+	int	count;
 
 	if (is_upper == 1)
 	{
 		if (n == 0)
-			return ;
+			return count;
 		ft_puthex((n / 16), 1);
 		ft_putchar(upper_hex[n % 16]);
 	}
 	else
 	{
 		if (n == 0)
-			return ;
+			return count;
 		ft_puthex((n / 16), 0);
 		ft_putchar(low_hex[n % 16]);
 	}
