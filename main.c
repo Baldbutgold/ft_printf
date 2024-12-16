@@ -1,8 +1,8 @@
 #include "ft_printf.h"
 int main()
 {
-    int my_result = ft_putnbr(-1234);
-    int result = printf("%d", -1234);
+    int my_result = ft_putstr("Hello");
+    int result = printf("%s", "Hello");
     printf("printf %d characters were written\n", result);
     printf("my printf %d characters were written", my_result);
 }

@@ -61,15 +61,16 @@ int	ft_puthex(unsigned int n, int is_upper)
 	if (is_upper == 1)
 	{
 		if (n == 0)
-			return count;
+			return (count);
 		ft_puthex((n / 16), 1);
 		ft_putchar(upper_hex[n % 16]);
 	}
 	else
 	{
 		if (n == 0)
-			return count;
+			return (count);
 		ft_puthex((n / 16), 0);
 		ft_putchar(low_hex[n % 16]);
 	}
+	return (count);
 }
