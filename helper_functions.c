@@ -44,3 +44,26 @@ void	ft_putnbr(int n)
 		ft_putnbr(n / 10);
 	ft_putchar((n % 10) + 48);
 }
+
+void	ft_puthex(unsigned int n, int is_upper)
+{
+	char	*low_hex = "0123456789abcdef";
+	char	*upper_hex = "0123456789ABCDEF";
+
+	if (is_upper == 1)
+	{
+		while (n > 0)
+		{
+			ft_putchar(upper_hex[n % 16]);
+			n = n / 16;
+		}
+	}
+	else
+	{
+		while (n > 0)
+		{
+			ft_putchar(low_hex[n % 16]);
+			n = n / 16;
+		}
+	}
+}
