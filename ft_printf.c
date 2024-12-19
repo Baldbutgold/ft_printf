@@ -14,17 +14,17 @@
 
 int	ft_printf(const char *format, ...)
 {
-	int	written_size;
-	int	i;
-	int	count;
-	va_list args;
-	va_start(args, format);
+	int		written_size;
+	int		i;
+	int		count;
+	va_list	args;
 
 	if (!format)
 		return (-1);
+	va_start(args, format);
 	count = 0;
 	i = 0;
-	while (format[i])	
+	while (format[i])
 	{
 		if (format[i] == '%')
 		{
@@ -39,20 +39,16 @@ int	ft_printf(const char *format, ...)
 			if (format[i] == 'd' || format[i] == 'i')
 				count += ft_putnbr(va_arg(args, int));
 			if (format[i] == 'u')
-				count += ft_putnbr(va_arg(args, unsigned int)); //change this to a seperate function that works with unsigned int
-			// work on this part functions
+				count += ft_putnbr(va_arg(args, unsigned int));
 			if (format[i] == 'p')
-				count += ft_putstr(va_arg(args, void *));
-			if (format[i] == 'x') //hex in lowercase
+				count += ft_put_pointer((unsigned long)va_arg(args, void *));
+			if (format[i] == 'x')
 				count += ft_puthex(va_arg(args, unsigned int), 0);
-			if (format[i] == 'X') //hex in uppercase
+			if (format[i] == 'X')
 				count += ft_puthex(va_arg(args, unsigned int), 1);
 		}
 		else
-		{
-			ft_putchar(format[i]);
-			count += 1;
-		}
+			count += ft_putchar(format[i]);
 		i++;
 	}
 	return (written_size);
