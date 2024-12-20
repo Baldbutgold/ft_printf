@@ -33,7 +33,7 @@ int	ft_printf(const char *format, ...)
 			if (format[i] == '%')
 				count += ft_putchar('%');
 			if (format[i] == 'c')
-				count += ft_putchar(va_arg(args, char *));
+				count += ft_putchar(va_arg(args, int));
 			if (format[i] == 's')
 				count += ft_putstr(va_arg(args, char *));
 			if (format[i] == 'd' || format[i] == 'i')

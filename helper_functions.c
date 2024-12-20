@@ -92,7 +92,10 @@ int	ft_puthex(unsigned int n, int is_upper)
 	else
 	{
 		if (n == 0)
+		{
+			count += putchar('0');
 			return (count);
+		}
 		ft_puthex((n / 16), 0);
 		count += ft_putchar(low_hex[n % 16]);
 	}
